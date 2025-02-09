@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Product Advertising</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+
+        }
+        p1{
+  font-family: "Dancing Script", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 2em;
+
+        }
+        
+        span {
+            display: inline-block;
+            animation: rotation 5s ease-in-out alternate infinite;
+        }
+      
+        header {
+            background-color: gold;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            position: fixed;
+            top: 10px;
+            animation: couleur 3s linear infinite;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            color: #FFD700;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span1 {
+            height: 3px;
+            width: 60px; /* Longueur augmentée */
+            background-color: #000;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 50px;
+            padding: 0px;
+        }
+
+        .menu li {
+            margin-left: 20px;
+            transition: transform 0.3s;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0px;
+            padding: 10px;
+            font-size: bold;
+            font-weight: bold;
+            justify-content: center;
+            justify-items: center;
+        }
+        .menu li:hover{
+          transform: scale(1.5);
+          border: 2px solid black;
+            border-radius: 10px;
+             font-weight: 20px;
+            
+        }
+
+        .hero {
+            background: url('hill-background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: rgba(50, 80, 90, 0.7);
+            z-index: -1;
+        }
+
+         h1 {
+            font-size: 3em;
+            color: #FFD700;
+            animation: float 3s ease-in-out infinite;
+            z-index: 200;
+            position: relative;
+            top: -100px;
+        }
+
+        .products {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s forwards;
+            opacity: 0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .contact {
+            padding: 50px;
+            text-align: center;
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        #contactForm button {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            animation: couleur 2s linear infinite;
+        }
+        @keyframes couleur{
+          
+  0%{
+    background:#4edbf7 ;
+    box-shadow: 0px 0px 50px #4edbf7;
+  }
+    10%{
+    background: #1793a6;
+    box-shadow: 0px 0px 50px #1793a6
+  }
+    20%{
+    background: #44f5b3;
+    box-shadow: 0px 0px 50px #44f5b3;
+  }
+    30%{
+    background: #82fd5a;
+    box-shadow: 0px 0px 50px #82fd5a;
+  }
+    40%{
+    background: #3b8922;
+    box-shadow: 0px 0px 50px  #3b8922;
+  }  50%{
+    background: #e0fa59;
+    box-shadow: 0px 0px 50px #e0fa59;
+  }
+  60%{
+    background: #758815;
+    box-shadow: 0px 0px 50px #758815;
+  }
+    70%{
+    background: #f87d31;
+    box-shadow: 0px 0px 50px #f87d31;
+  }
+    80%{
+    background: #a94617;
+    box-shadow: 0px 0px 50px #a94617;
+  }
+    90%{
+    background: #fa433a;
+    box-shadow: 0px 0px 50px #fa433a;
+  }
+    100%{
+    background: #fa3a5d;
+    box-shadow: 0px 0px 50px #fa3a5d;
+  }
+
+        }   .card {
+          animation: couleur 5s ease infinite;
+            --font-color: #323232;
+            --font-color-sub: #666;
+            --bg-color: rgb(255,255,255);
+            --main-color: #323232;
+            width: 300px;
+            height: 400px;
+            background: var(--bg-color);
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 100px auto 20px; /* Centrer la carte et ajouter une marge en haut */
+            position: absolute;
+            top: 0px;
+            z-index: 2;
+            
+        }
+
+@keyframes bod{
+  
+  0%{
+    background:#4edbf7 ;
+    box-shadow: 0px 0px 50px #4edbf7;
+  }
+    10%{
+    background: #1793a6;
+    box-shadow: 0px 0px 50px #1793a6
+  }
+    20%{
+    background: #44f5b3;
+    box-shadow: 0px 0px 50px #44f5b3;
+  }
+    30%{
+    background: #82fd5a;
+    box-shadow: 0px 0px 50px #82fd5a;
+  }
+    40%{
+    background: #3b8922;
+    box-shadow: 0px 0px 50px  #3b8922;
+  }  50%{
+    background: #e0fa59;
+    box-shadow: 0px 0px 50px #e0fa59;
+  }
+  60%{
+    background: #758815;
+    box-shadow: 0px 0px 50px #758815;
+  }
+    70%{
+    background: #f87d31;
+    box-shadow: 0px 0px 50px #f87d31;
+  }
+    80%{
+    background: #a94617;
+    box-shadow: 0px 0px 50px #a94617;
+  }
+    90%{
+    background: #fa433a;
+    box-shadow: 0px 0px 50px #fa433a;
+  }
+    100%{
+    background: #fa3a5d;
+    box-shadow: 0px 0px 50px #fa3a5d;
+  }
+
+}
+.card-photo {
+  width: 200px; /* Ajustez la taille de l'image */
+  height: 240px; /* Ajustez la taille de l'image */
+  border-radius: 50%; /* Pour une image ronde */
+  margin-bottom: 15px; /* Espace entre l'image et le titre */
+  background-color: gold;
+  margin-top: 30px;
+  animation: change 5s ease-in-out infinite;
+}
+span{
+  animation: rotation 0.3s ease-in-out alternate infinite;
+}
+@keyframes rotation{
+  0%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(40deg);
+  }
+  100%{
+    transform: rotate(-40deg);
+  }
+}
+@keyframes bd{
+  
+  0%{
+    background:#4edbf7 ;
+    box-shadow: 0px 0px 50px #4edbf7;
+  }
+    10%{
+    background: #1793a6;
+    box-shadow: 0px 0px 50px #1793a6
+  }
+    20%{
+    background: #44f5b3;
+    box-shadow: 0px 0px 50px #44f5b3;
+  }
+    30%{
+    background: #82fd5a;
+    box-shadow: 0px 0px 50px #82fd5a;
+  }
+    40%{
+    background: #3b8922;
+    box-shadow: 0px 0px 50px  #3b8922;
+  }  50%{
+    background: #e0fa59;
+    box-shadow: 0px 0px 50px #e0fa59;
+  }
+  60%{
+    background: #758815;
+    box-shadow: 0px 0px 50px #758815;
+  }
+    70%{
+    background: #f87d31;
+    box-shadow: 0px 0px 50px #f87d31;
+  }
+    80%{
+    background: #a94617;
+    box-shadow: 0px 0px 50px #a94617;
+  }
+    90%{
+    background: #fa433a;
+    box-shadow: 0px 0px 50px #fa433a;
+  }
+    100%{
+    background: #fa3a5d;
+    box-shadow: 0px 0px 50px #fa3a5d;
+  }
+
+}
+@keyframes change{
+  0%{
+    background:#4edbf7 ;
+    box-shadow: 0px 0px 50px #4edbf7;
+  }
+    10%{
+    background: #1793a6;
+    box-shadow: 0px 0px 50px #1793a6
+  }
+    20%{
+    background: #44f5b3;
+    box-shadow: 0px 0px 50px #44f5b3;
+  }
+    30%{
+    background: #82fd5a;
+    box-shadow: 0px 0px 50px #82fd5a;
+  }
+    40%{
+    background: #3b8922;
+    box-shadow: 0px 0px 50px  #3b8922;
+  }  50%{
+    background: #e0fa59;
+    box-shadow: 0px 0px 50px #e0fa59;
+  }
+  60%{
+    background: #758815;
+    box-shadow: 0px 0px 50px #758815;
+  }
+    70%{
+    background: #f87d31;
+    box-shadow: 0px 0px 50px #f87d31;
+  }
+    80%{
+    background: #a94617;
+    box-shadow: 0px 0px 50px #a94617;
+  }
+    90%{
+    background: #fa433a;
+    box-shadow: 0px 0px 50px #fa433a;
+  }
+    100%{
+    background: #fa3a5d;
+    box-shadow: 0px 0px 50px #fa3a5d;
+  }
+}
+.card-photo{
+  background: linear-gradient(90deg ,,yellow,gold);
+  border: 2px solid   black;
+  
+}
+
+
+.card-title {
+  text-align: center;
+  color: var(--font-color);
+  font-size: 20px;
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.card-title span2 {
+  font-size: 15px;
+  color: var(--font-color-sub);
+}
+
+.card-socials {
+  display: flex;
+  height: 0;
+  opacity: 0;
+  margin-top: 20px;
+  gap: 20px;
+  transition: 0.5s;
+}
+
+.card-socials-btn {
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.card-socials-btn svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--main-color);
+}
+
+.card:hover > .card-socials {
+  opacity: 1;
+  height: 35px;
+}
+
+.card-socials-btn:hover {
+  transform: translateY(-5px);
+  transition: all 0.15s;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.card {
+  animation: slideDown 1s ease-out forwards;
+  opacity: 0; /* Initial state */
+}
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links img {
+            width: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 25px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                text-align: center;
+                justify-content: center;
+                border-radius: 20px;
+            }
+            
+
+            .menu li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .contact {
+                order: 1;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .menu {
+                display: flex !important;
+            }
+
+            .menu-toggle {
+                display: none !important;
+            }
+            .card{
+           position: absolute;
+            top: 500px;
+            }
+                    .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+
+            .contact {
+                display: ;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            #contactForm {
+                width: 45%;
+            }
+        }
+        
+        footer {
+  background-color: #2c3e50; /* Couleur de fond */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espace entre les icônes */
+}
+
+.footer-content a {
+  color: #ffffff; /* Couleur des icônes */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  color: #3498db; /* Couleur au survol */
+}
+
+.footer-content svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor; /* Utilise la couleur du lien */
+  animation: couleur 2s linear infinite;
+  border-radius: 45%;
+}
+    .whatsapp-icon {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #25D366;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .whatsapp-icon i {
+        margin-right: 8px;
+    }
+    .whatsapp-icon:hover {
+        background-color: #1DA850;
+    }
+    span3{
+      font-weight:bold;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><b>Sergeo LIMTA</b></div>
+            <div class="menu-toggle">
+                <span1></span1>
+                <span1></span1>
+                <span1></span1>
+            </div>
+            <ul class="menu">
+                <li><a href="#hero">À propos de moi !</a></li>
+                <li><a href="#products">C'est quoi ce site ?</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+             <div class="card">
+    <img src="https://image.noelshack.com/fichiers/2025/06/7/1739080401-picsart-01-15-11-10-52.jpg" alt="Photo de profil" class="card-photo">
+    <div class="card-title"><b>Sergeo LIMTA </b><br>
+        <span2>Dévéloppeur <b>Web junior;</b><br> Étudiant à l'université de  <b>Lomé.</b>  </span2>
+    </div>
+    <div class="card-socials">
+        <button class="card-socials-btn facebook">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" id="Layer_21" height="24" data-name="Layer 21"><title></title><path d="M16.75,9H13.5V7a1,1,0,0,1,1-1h2V3H14a4,4,0,0,0-4,4V9H8v3h2v9h3.5V12H16Z"></path></svg>
+        </button>
+        <button class="card-socials-btn github">
+            <svg viewBox="0 0 24 24" height="33" width="33" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+        </button>
+        <button class="card-socials-btn linkedin">
+            <svg height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m51.326 185.85h90.011v270.872h-90.011zm45.608-130.572c-30.807 0-50.934 20.225-50.934 46.771 0 26 19.538 46.813 49.756 46.813h.574c31.396 0 50.948-20.814 50.948-46.813-.589-26.546-19.551-46.771-50.344-46.771zm265.405 124.209c-47.779 0-69.184 26.28-81.125 44.71v-38.347h-90.038c1.192 25.411 0 270.872 0 270.872h90.038v-151.274c0-8.102.589-16.174 2.958-21.978 6.519-16.174 21.333-32.923 46.182-32.923 32.602 0 45.622 24.851 45.622 61.248v144.926h90.024v-155.323c0-83.199-44.402-121.911-103.661-121.911z"></path></svg>
+        </button>
+    </div>
+</div>
+        
+
+    </section>
+
+    <section id="products" class="products">
+        <h1><b>Salut et bienvenue <span>👋</span>;</b></h1>
+        <div class="product-list">
+            <div class="product-card" style="animation-delay: 0.2s;">
+                <h3>sur mon <b>PortFolio !</b></h3>
+                      <p> <br>
+        Je me nomme <b>Sergeo B. Limta,</b> Dévéloppeur Web et étudiant à l'université de <b>Lomé 🤭!</b><br>
+        Ce PortFolio permet de bien s'identifier et de bien s'auto-décrire.<br><br>
+        J'espère que ça t'a plu ce genre de PortFolio🥹✨.  Si c'est le cas, n'oublie pas de me contacter.<br>Ça me fera aussi plaissir!</p>
+            </div>
+            <div class="product-card" style="animation-delay: 0.2s;">
+                <h3> <b>Ça👇 c'est pour toi !</b></h3>
+                      <p1> <br><span3>"</span3>Le succès n'est pas final, l'échec n'est pas fatal : c'est le courage de continuer qui compte." <br><b>Winston Churchill</b> 
+       </p1>
+            </div>
+            <!-- Ajouter d'autres produits de même structure -->
+        </div>
+    </section>
+   <center>
+<a href="https://api.whatsapp.com/send?phone=+228 96564590" class="whatsapp-icon">
+    <i class="fab fa-whatsapp"></i>
+    Envoyez-nous un message<br> WhatsApp
+</a>
+   </center> 
+    <section id="contact" class="contact">
+        <h2>Écrit moi un mot pour m'encourager ! <span>💝</span></h2><form id="contactForm" action="mailto:sergeodlb@gmail.com" method="post" enctype="text/plain">
+    <input type="text" id="name" name="name" placeholder="Ton nom..." required>
+    <input type="email" id="email" name="email" placeholder="Ton Email..." required>
+    <textarea id="message" name="message" placeholder="Écris-moi ton message ici..." required></textarea>
+    <button type="submit">Envoyer</button>
+</form>
+      
+    </section>
+
+    <footer>
+  <div class="footer-content">
+    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+      </svg>
+    </a>
+    <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+      </svg>
+    </a>
+    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    </a>
+    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+    </a>
+  </div>
+  <center><div><p>Copyright &copy; 2025 by Sergeo Limta. Tous droits réservés.</p></div></center>
+</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('active');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.product-card').forEach((card) => {
+                observer.observe(card);
+            });
+        });
+        
+        
+      
+  window.addEventListener('load', () => {
+  const card = document.querySelector('.card');
+  card.style.opacity = '1'; // Make the card visible
+});
+    </script>
+</body>
+</html>
